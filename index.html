@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulário - EvoluxRH</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>EvoluxRH — Briefing da Vaga</h1>
+      <p>Preencha as informações abaixo para iniciarmos o processo com agilidade.</p>
+    </header>
+
+    <form id="evoluxrh-form" novalidate>
+      <!-- 1. Dados da Empresa -->
+      <section class="card">
+        <h2>1. Dados da Empresa</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="empresa_nome">Nome da Empresa</label>
+            <input id="empresa_nome" name="empresa_nome" type="text" placeholder="Ex.: ACME LTDA" />
+          </div>
+          <div class="field">
+            <label for="empresa_cnpj">CNPJ</label>
+            <div class="with-action">
+              <input id="empresa_cnpj" name="empresa_cnpj" type="text" inputmode="numeric" placeholder="00.000.000/0000-00" maxlength="18" />
+              <button type="button" id="buscar_cnpj" class="btn">Buscar CNPJ</button>
+            </div>
+            <small class="hint">Ao informar o CNPJ, buscaremos os dados automaticamente.</small>
+            <div class="error" id="cnpj_error" aria-live="polite"></div>
+          </div>
+          <div class="field col-2">
+            <label for="empresa_endereco">Endereço</label>
+            <input id="empresa_endereco" name="empresa_endereco" type="text" placeholder="Logradouro, número, complemento" />
+          </div>
+          <div class="field">
+            <label for="empresa_cidade">Cidade</label>
+            <input id="empresa_cidade" name="empresa_cidade" type="text" placeholder="Cidade" />
+          </div>
+          <div class="field">
+            <label for="empresa_uf">UF</label>
+            <input id="empresa_uf" name="empresa_uf" type="text" placeholder="UF" maxlength="2" />
+          </div>
+          <div class="field">
+            <label for="empresa_cep">CEP</label>
+            <input id="empresa_cep" name="empresa_cep" type="text" inputmode="numeric" placeholder="00000-000" maxlength="9" />
+          </div>
+          <div class="field">
+            <label for="empresa_telefone">Telefone / WhatsApp</label>
+            <input id="empresa_telefone" name="empresa_telefone" type="text" inputmode="tel" placeholder="(00) 00000-0000" maxlength="15" />
+          </div>
+          <div class="field">
+            <label for="empresa_site">Site / Redes sociais (se houver)</label>
+            <input id="empresa_site" name="empresa_site" type="text" placeholder="Ex.: https://empresa.com / @empresa" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Responsável pelo Processo -->
+      <section class="card">
+        <h2>2. Responsável pelo Processo</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="resp_nome">Nome completo</label>
+            <input id="resp_nome" name="resp_nome" type="text" />
+          </div>
+          <div class="field">
+            <label for="resp_cargo">Cargo / Função</label>
+            <input id="resp_cargo" name="resp_cargo" type="text" />
+          </div>
+          <div class="field">
+            <label for="resp_telefone">Telefone / WhatsApp</label>
+            <input id="resp_telefone" name="resp_telefone" type="text" inputmode="tel" placeholder="(00) 00000-0000" maxlength="15" />
+          </div>
+          <div class="field col-2">
+            <label>Como chegou até nossa consultoria?</label>
+            <div class="options">
+              <label><input type="radio" name="origem" value="Indicacao" /> Indicação</label>
+              <label><input type="radio" name="origem" value="Instagram" /> Instagram</label>
+              <label><input type="radio" name="origem" value="Site" /> Site</label>
+              <label class="with-input">
+                <input type="radio" name="origem" value="Outro" /> Outro
+                <input type="text" id="origem_outro" name="origem_outro" placeholder="Qual?" />
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Informações Gerais da Empresa -->
+      <section class="card">
+        <h2>3. Informações Gerais da Empresa</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="num_colaboradores">Número total de colaboradores</label>
+            <input id="num_colaboradores" name="num_colaboradores" type="number" min="0" />
+          </div>
+          <div class="field col-2">
+            <label for="principais_setores">Principais setores / áreas da empresa</label>
+            <input id="principais_setores" name="principais_setores" type="text" />
+          </div>
+          <div class="field">
+            <label for="tempo_mercado">Tempo de atuação no mercado</label>
+            <input id="tempo_mercado" name="tempo_mercado" type="text" placeholder="Ex.: 10 anos" />
+          </div>
+          <div class="field col-2">
+            <label>Modelo de atuação</label>
+            <div class="options">
+              <label><input type="checkbox" name="modelo_atuacao" value="Presencial" /> Presencial</label>
+              <label><input type="checkbox" name="modelo_atuacao" value="Hibrido" /> Híbrido</label>
+              <label><input type="checkbox" name="modelo_atuacao" value="Remoto" /> 100% remoto</label>
+              <label><input type="checkbox" name="modelo_atuacao" value="Campo" /> Campo / externo</label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="ramo">Ramo de atividade / segmento</label>
+            <input id="ramo" name="ramo" type="text" />
+          </div>
+          <div class="field col-2">
+            <label for="mvv">Missão / visão / valores (se houver)</label>
+            <textarea id="mvv" name="mvv" rows="3"></textarea>
+          </div>
+          <div class="field col-2">
+            <label for="clima">Como descreveria o clima organizacional?</label>
+            <textarea id="clima" name="clima" rows="3"></textarea>
+          </div>
+          <div class="field col-2">
+            <label for="lideranca">Como é o estilo de liderança predominante?</label>
+            <textarea id="lideranca" name="lideranca" rows="3"></textarea>
+          </div>
+          <div class="field">
+            <label>Plano de cargos e salários?</label>
+            <div class="options">
+              <label><input type="radio" name="pcs" value="Sim" /> Sim</label>
+              <label><input type="radio" name="pcs" value="Nao" /> Não</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Perspectiva de crescimento?</label>
+            <div class="options">
+              <label><input type="radio" name="crescimento" value="Sim" /> Sim</label>
+              <label><input type="radio" name="crescimento" value="Nao" /> Não</label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Estrutura e Gestão -->
+      <section class="card">
+        <h2>4. Estrutura e Gestão</h2>
+        <div class="grid">
+          <div class="field col-2">
+            <label for="socios_diretores">Sócios e/ou Diretores</label>
+            <textarea id="socios_diretores" name="socios_diretores" rows="2"></textarea>
+          </div>
+          <div class="field">
+            <label for="num_gestores">Número de gestores diretos</label>
+            <input id="num_gestores" name="num_gestores" type="number" min="0" />
+          </div>
+          <div class="field">
+            <label for="num_subordinados">Quantos respondem a este cargo/vaga diretamente?</label>
+            <input id="num_subordinados" name="num_subordinados" type="number" min="0" />
+          </div>
+          <div class="field">
+            <label>Vaga é nova ou reposição?</label>
+            <div class="options">
+              <label><input type="radio" name="tipo_vaga" value="Nova" /> Nova</label>
+              <label><input type="radio" name="tipo_vaga" value="Reposicao" /> Reposição</label>
+            </div>
+          </div>
+          <div class="field col-2">
+            <label for="motivo_abertura">Motivo da abertura</label>
+            <textarea id="motivo_abertura" name="motivo_abertura" rows="2"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Informações da Vaga -->
+      <section class="card">
+        <h2>5. Informações da Vaga</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="titulo_cargo">Título do cargo</label>
+            <input id="titulo_cargo" name="titulo_cargo" type="text" />
+          </div>
+          <div class="field">
+            <label for="setor">Setor / Departamento</label>
+            <input id="setor" name="setor" type="text" />
+          </div>
+          <div class="field">
+            <label>Tipo de contrato</label>
+            <div class="options">
+              <label><input type="checkbox" name="tipo_contrato" value="CLT" /> CLT</label>
+              <label><input type="checkbox" name="tipo_contrato" value="PJ" /> PJ</label>
+              <label><input type="checkbox" name="tipo_contrato" value="Estagio" /> Estágio</label>
+              <label><input type="checkbox" name="tipo_contrato" value="Temporario" /> Temporário</label>
+              <label class="with-input">
+                <input type="checkbox" name="tipo_contrato" value="Outro" /> Outro
+                <input type="text" id="tipo_contrato_outro" name="tipo_contrato_outro" placeholder="Qual?" />
+              </label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="horario">Horário de trabalho</label>
+            <input id="horario" name="horario" type="text" placeholder="Ex.: 9h às 18h" />
+          </div>
+          <div class="field">
+            <label>Modelo de trabalho</label>
+            <div class="options">
+              <label><input type="radio" name="modelo_trabalho" value="Presencial" /> Presencial</label>
+              <label><input type="radio" name="modelo_trabalho" value="Hibrido" /> Híbrido</label>
+              <label><input type="radio" name="modelo_trabalho" value="Remoto" /> Remoto</label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="faixa_salarial">Faixa salarial</label>
+            <input id="faixa_salarial" name="faixa_salarial" type="text" placeholder="Ex.: R$ 4.000 a R$ 5.500" />
+          </div>
+          <div class="field col-2">
+            <label for="beneficios">Benefícios</label>
+            <textarea id="beneficios" name="beneficios" rows="2"></textarea>
+          </div>
+          <div class="field">
+            <label for="previsao_inicio">Previsão de início</label>
+            <input id="previsao_inicio" name="previsao_inicio" type="date" />
+          </div>
+        </div>
+      </section>
+
+      <!-- 6. Perfil Técnico e Comportamental -->
+      <section class="card">
+        <h2>6. Perfil Técnico e Comportamental</h2>
+        <div class="grid">
+          <div class="field">
+            <label for="formacao_minima">Formação mínima exigida</label>
+            <input id="formacao_minima" name="formacao_minima" type="text" />
+          </div>
+          <div class="field col-2">
+            <label for="tecnicos_obrigatorios">Conhecimentos / habilidades técnicas obrigatórias</label>
+            <textarea id="tecnicos_obrigatorios" name="tecnicos_obrigatorios" rows="2"></textarea>
+          </div>
+          <div class="field col-2">
+            <label for="tecnicos_desejaveis">Conhecimentos técnicos desejáveis</label>
+            <textarea id="tecnicos_desejaveis" name="tecnicos_desejaveis" rows="2"></textarea>
+          </div>
+          <div class="field col-2">
+            <label for="comportamentais_esperadas">Competências comportamentais esperadas</label>
+            <textarea id="comportamentais_esperadas" name="comportamentais_esperadas" rows="2"></textarea>
+          </div>
+          <div class="field col-2">
+            <label for="comportamentais_desejadas">Competências comportamentais desejadas</label>
+            <textarea id="comportamentais_desejadas" name="comportamentais_desejadas" rows="2"></textarea>
+          </div>
+          <div class="field col-2">
+            <label for="fit_cultural">Estilo de profissional que melhor se adapta ao time e à cultura</label>
+            <textarea id="fit_cultural" name="fit_cultural" rows="2"></textarea>
+          </div>
+          <div class="field col-2">
+            <label for="entregas_iniciais">O que espera que entregue nos primeiros meses?</label>
+            <textarea id="entregas_iniciais" name="entregas_iniciais" rows="2"></textarea>
+          </div>
+          <div class="field col-2">
+            <label for="desafios">Há desafios específicos que este cargo enfrentará?</label>
+            <textarea id="desafios" name="desafios" rows="2"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <footer class="actions">
+        <button type="submit" class="btn primary">Enviar</button>
+        <span id="form_status" class="status" aria-live="polite"></span>
+      </footer>
+    </form>
+  </main>
+
+  <script src="script.js"></script>
+  <noscript>Ative o JavaScript para melhor experiência e preenchimento automático do CNPJ.</noscript>
+</body>
+</html>
+
+
